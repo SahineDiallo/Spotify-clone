@@ -3,6 +3,7 @@ import Login from './Login';
 import { useState, useEffect } from 'react';
 import { getUrlToken } from './spotify.js';
 import SpotifyWebApi from 'spotify-web-api-js';
+import Player from './Player';
 
 function App() {
   const [_token, setToken ] = useState(null);
@@ -26,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-        <Login />
+        {_token ? <Player /> :<Login />}
     </div>
   );
 }
