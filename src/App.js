@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import Login from './Login';
+import { useState, useEffect } from 'react';
+import { getUrlToken } from './spotify.js';
+import SpotifyWebApi from 'spotify-web-api-js';
 
 function App() {
+  const [_token, setToken ] = useState(null);
+  const spotify = new SpotifyWebApi();
+  useEffect(()=> {
+    const urlToken = getUrlToken();
+    const _token = urlToken?.access_token;
+    console.log("Token >>>", _token);
+    if (_token) {
+      setToken(_token);
+      window.location.hash = "";
+      spotify.setAccessToken(_token);
+      // let's get the current user
+      spotify.getMe()
+      .then(user=>{
+        console.log(user);
+      })
+    }
+  }, [_token])
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Login />
     </div>
   );
 }
