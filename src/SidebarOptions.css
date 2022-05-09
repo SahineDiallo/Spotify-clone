@@ -1,0 +1,36 @@
+.sidebaroptions span {
+    height: 40px;
+    font-weight: 500;
+    letter-spacing: .02rem;
+    transition: .2s color ease;
+    display: inline-block;
+}
+.sidebaroptions .sidebaroptions__link {
+    display: flex;
+    align-items: flex-start;
+    padding-left: 15px;
+    transition: .2s color ease;
+    color: grey;
+}
+.sidebaroptions__icon{
+    text-align: center;
+    line-height: 40px;
+    padding-right: 15px;
+}
+.sidebaroptions .sidebaroptions__link:hover {
+    cursor: pointer;
+    color: white;
+}
+.sidebaroptions__title {
+    padding-left : 15px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.player__sidebar hr {
+    border: 1px solid #282828 !important;
+    margin: 8px auto !important;
+    width: 90% !important;
+}
+
