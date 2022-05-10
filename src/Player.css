@@ -23,6 +23,8 @@
     padding: 30px;
     height: calc(100vh - 65px);
     color: white;
+    max-height: 100vh;
+    overflow-y: scroll;
 }
 .player__footer {
     height: 65px;
@@ -113,6 +115,7 @@
     display: flex;
     gap: 1rem;
     align-items: center;
+    margin-bottom: 20px;
 }
 .core__icon {
     font-size: 80px !important;

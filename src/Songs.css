@@ -1,0 +1,21 @@
+.song__title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.song__title img {
+    height: 40px;
+    object-fit: contain;
+}
+.songs {
+    display: flex;
+    padding:10px 20px;
+}
+
+.song__details p, 
+.song__details small {
+    max-width: 150px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

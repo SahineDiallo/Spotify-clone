@@ -17,6 +17,7 @@ import { Grid, Slider } from '@material-ui/core';
 import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
 import VolumeDownIcon from '@material-ui/icons/VolumeDown';
 import Header from './Header';
+import Songs from './Songs';
 
 
 
@@ -74,6 +75,12 @@ function Player({spotify}) {
                       <FavoriteIcon />
                       <MoreHoriz />
                     </div>
+                    {
+                      current_playlist?.tracks?.items.map((track, i) => (
+                        <Songs key={i} track={track}/>
+                      ))
+                    }
+                    
                 </div>
             </div>
         </div>
