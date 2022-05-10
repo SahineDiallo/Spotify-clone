@@ -8,8 +8,9 @@ import {UseDataLayerValue} from './DataLayerProvider';
 
 function App() {
   const [_token, setToken ] = useState(null);
-  const [{}, dispatch ] = UseDataLayerValue();
+  const [ ,dispatch ] = UseDataLayerValue();
   const spotify = new SpotifyWebApi();
+  
   useEffect(()=> {
     const urlToken = getUrlToken();
     const _token = urlToken?.access_token;
@@ -31,15 +32,27 @@ function App() {
         dispatch({
           type: "SET_PLAYLISTS",
           playlists: playlists,
-        })
-      })
+        });
+        const playlist_id = (playlists?.items[0]?.id)
+        spotify.getPlaylist(playlist_id).then(
+          _cur_playlist => {
+            dispatch({
+              type: "SET_CURRENT_PLAYLIST",
+              current_playlist: _cur_playlist
+            })
+          }
+
+        )
+      });
+
+      
     }
   }, [_token])
   
 
   return (
     <div className="App">
-        {_token ? <Player /> :<Login />}
+        {_token ? <Player spotify={spotify} /> :<Login />}
     </div>
   );
 }
