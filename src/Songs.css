@@ -10,11 +10,20 @@
 .songs {
     display: flex;
     padding:10px 20px;
+    justify-content: space-between;
+    align-items:center;
 }
 
 .song__details p, 
 .song__details small {
     max-width: 150px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.song__album  p{
+    max-width: 200px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
